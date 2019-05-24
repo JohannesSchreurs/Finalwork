@@ -1,0 +1,21 @@
+.o-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    position: absolute;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease-in-out;
+}
+
+.o-overlay__text {
+    color: white;
+    font-size: 4rem;
+}
+
+.hidden {
+    background-color: transparent;
+    display:none;
+}
