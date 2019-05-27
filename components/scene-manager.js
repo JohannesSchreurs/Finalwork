@@ -1,4 +1,4 @@
-AFRAME.registerComponent('scene-manager', {
+const sceneManager = new AFRAME.registerComponent('scene-manager', {
 
     amountOfModelsLoaded: 0,
     loaded: false,
@@ -85,4 +85,6 @@ AFRAME.registerComponent('scene-manager', {
             callback();
         }
     }
-})
+});
+
+export default sceneManager;
