@@ -69,5 +69,11 @@ AFRAME.registerComponent('scene-manager', {
                 if(this.index === this.children.length) this.finished = true;
             }
         }
+
+        //end
+        if (this.finished) {
+            this.overlay.classList.remove('hidden');
+            this.overlayText.innerHTML = `Done.`;
+        }
     }
 })

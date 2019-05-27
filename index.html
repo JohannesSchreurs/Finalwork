@@ -13,16 +13,17 @@
     <div class="o-overlay js-overlay">
       <p class="o-overlay__text js-loading-text">Loading assets</p>
     </div>
-    <a-scene stats>
+    <a-scene stats fog="type: linear; color: #AAA; near: 1; far: 55">
         <a-assets>
             <a-asset-item id="hut-obj" src="/models/WoodenCabinObj.obj"></a-asset-item>
             <a-asset-item id="hut-obj2" src="/models/format3.obj"></a-asset-item>
         </a-assets>
 
-        <a-entity id="scene-wrapper" scene-manager="amount: 16; time: 0, 2000, 1000, 4000">
+        <a-entity id="scene-wrapper" scene-manager="amount: 12; time: 0, 10000, 10000, 2000">
             <a-entity visible="false" template="src: scenes/spheres.html"></a-entity>
             <a-entity visible="false" template="src: scenes/boxes.html"></a-entity>
             <a-entity visible="false" template="src: scenes/spheres.html"></a-entity>
+            <!-- End -->
             <a-entity visible="false" template="src: scenes/finished.html"></a-entity>
         </a-entity>
 
