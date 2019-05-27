@@ -1,3 +1,8 @@
+//Scene Manager component, custom written.
+//1. This component will load in all the assets needed to run the experience,
+//2. Display the loading screen and the end screen (as they follow up on the scenes)
+//3. Start the loop to display the scenes in a sequence
+
 const sceneManager = new AFRAME.registerComponent('scene-manager', {
 
     amountOfModelsLoaded: 0,
