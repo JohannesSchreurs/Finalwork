@@ -28,6 +28,7 @@ AFRAME.registerComponent('scene-transition', {
                 child.setAttribute('visible', 'false');
             }
         })
+        console.log(self.data.time[self.index]);
 
         this.children[self.index].setAttribute('visible', 'true');
         self.index++;
