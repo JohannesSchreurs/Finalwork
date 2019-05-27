@@ -1,4 +1,5 @@
-//Custom loader written by the people of Base Design. This loads in all the scripts from one location, rather than using multiple <script> tags
+//Custom loader written by the people of Base Design (Maxime Palau, https://twitter.com/maximepalau).
+//This loads in all the scripts from one location, rather than using multiple <script> tags
 
 // ====================================================================== //
 // Loader
