@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Final Work</title>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="components/scene-manager.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="o-overlay js-overlay">
+      <p class="o-overlay__text js-loading-text">Loading assets</p>
+    </div>
+    <!-- fog="type: linear; color: #AAA; near: 1; far: 55" -->
+    <a-scene stats>
+        <a-assets>
+            <a-asset-item id="hut-obj" src="/models/WoodenCabinObj.obj"></a-asset-item>
+            <a-asset-item id="hut-obj2" src="/models/format3.obj"></a-asset-item>
+            <a-asset-item id="factory" src="/models/factory.obj"></a-asset-item>
+            <a-asset-item id="city" src="/models/city.obj"></a-asset-item>
+        </a-assets>
+
+        <a-entity id="scene-wrapper" scene-manager="amount: 12; time: 0, 1000, 10000, 2000">
+            <a-entity visible="false" template="src: scenes/spheres.html"></a-entity>
+            <a-entity visible="false" template="src: scenes/boxes.html"></a-entity>
+            <a-entity visible="false" template="src: scenes/spheres.html"></a-entity>
+            <!-- End -->
+            <a-entity visible="false" template="src: scenes/finished.html"></a-entity>
+        </a-entity>
+
+        <a-sky color="#F91293"></a-sky>
+
+        <a-sphere 
+          id="overlay" 
+          radius="2" 
+          opacity="0" 
+          color="#000" 
+          side="back"
+        </a-sphere>
+    </a-scene>
+  </body>
+</html>

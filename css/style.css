@@ -1,3 +1,8 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
 .o-overlay {
     width: 100vw;
     height: 100vh;
@@ -12,6 +17,49 @@
 
 .o-overlay__text {
     font-size: 4rem;
+}
+
+.o-startscreen {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.o-btn {
+    border: 1px solid white;
+    padding: 2rem 4rem;
+    font-size: 3rem;
+    text-decoration: none;
+    position: relative;
+    background: linear-gradient(45deg, #FFF 50%, transparent 50%);
+    color: white;
+}
+
+.o-btn:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, #FFF 50%, #fff 50%);
+    z-index: -1;
+}
+
+.o-btn, .o-btn:after {
+    background-size: 300%;
+    background-position: 100%;
+    transition: 0.6s ease-in-out;
+}
+
+.o-btn:hover,
+.o-btn:hover:after {
+    background-position: 0;
+
+    color: black; /*For IE*/
 }
 
 .hidden {
