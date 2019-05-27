@@ -7,6 +7,8 @@ AFRAME.registerComponent('scene-manager', {
     overlayText: null,
     fade: null,
     children: null,
+    playNextScene: false,
+    finished: false,
 
     schema: {
         amount: {
@@ -29,7 +31,6 @@ AFRAME.registerComponent('scene-manager', {
     },
 
     tick: function (time) {
-        let self = this;
 
         //preview start
         if(this.loading) {
@@ -45,25 +46,28 @@ AFRAME.registerComponent('scene-manager', {
         }
 
         //main loop
-        if (this.loaded) {
+        if (this.loaded && !this.finished) {
             
             this.fade.components.material.material.opacity -= 0.027;
+            if (time - this.time < this.data.time[this.index]) { 
+                this.playNextScene = false;
+                return;
+            } else {
+                this.playNextScene = true;
+            }
+            this.time = time;
 
-            setTimeout(() => {
-                if (time - this.time < self.data.time[self.index]) { return; }
-                this.time = time;
+            if (this.playNextScene) {
                 this.children.forEach(child => {
                     if (child.hasAttribute('visible')) {
                         child.setAttribute('visible', 'false');
                     }
                 })
-                console.log(self.data.time[self.index]);
-
-                this.children[self.index].setAttribute('visible', 'true');
-                self.index++;
+                this.children[this.index].setAttribute('visible', 'true');
+                this.index++;
                 this.fade.components.material.material.opacity = 1;
-                if(self.index === this.children.length) self.index = 0;
-            }, self.data.time[self.index]);
+                if(this.index === this.children.length) this.finished = true;
+            }
         }
     }
 })

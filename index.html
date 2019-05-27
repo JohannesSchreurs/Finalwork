@@ -19,14 +19,14 @@
             <a-asset-item id="hut-obj2" src="/models/format3.obj"></a-asset-item>
         </a-assets>
 
-        <a-entity id="scene-wrapper" scene-manager="amount: 16; time: 1000, 3000, 2000, 1000">
-            <a-entity visible="true" template="src: scenes/spheres.html"></a-entity>
-            <a-entity visible="false" template="src: scenes/boxes.html"></a-entity>
+        <a-entity id="scene-wrapper" scene-manager="amount: 16; time: 0, 2000, 1000, 4000">
             <a-entity visible="false" template="src: scenes/spheres.html"></a-entity>
             <a-entity visible="false" template="src: scenes/boxes.html"></a-entity>
+            <a-entity visible="false" template="src: scenes/spheres.html"></a-entity>
+            <a-entity visible="false" template="src: scenes/finished.html"></a-entity>
         </a-entity>
 
-        <a-sky color="#D7C1E0"></a-sky>
+        <a-sky color="#F91293"></a-sky>
 
         <a-sphere 
           id="overlay" 
