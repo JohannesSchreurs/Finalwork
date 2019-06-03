@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="o-overlay js-overlay">
-      <p class="o-overlay__text js-loading-text">Loading assets</p>
+      <p class="o-overlay__text js-loading-text">Loading models</p>
     </div>
     <!-- fog="type: linear; color: #AAA; near: 1; far: 55" -->
     <a-scene stats>
@@ -20,7 +20,7 @@
             <a-asset-item id="city" src="/models/city.obj"></a-asset-item>
         </a-assets>
 
-        <a-entity id="scene-wrapper" scene-manager="amount: 12; time: 0, 1000, 10000, 2000">
+        <a-entity id="scene-wrapper" scene-manager="amount: 12; time: 0, 1000, 1000, 1000">
             <a-entity visible="false" template="src: scenes/spheres.html"></a-entity>
             <a-entity visible="false" template="src: scenes/boxes.html"></a-entity>
             <a-entity visible="false" template="src: scenes/spheres.html"></a-entity>

@@ -30,6 +30,10 @@ body{
     flex-direction: column;
 }
 
+.o-startscreen p {
+    margin: 0;
+}
+
 .o-btn {
     border: 1px solid white;
     padding: 2rem 4rem;
@@ -38,6 +42,7 @@ body{
     position: relative;
     background: linear-gradient(45deg, #FFF 50%, transparent 50%);
     color: white;
+    margin-top: 2rem;
 }
 
 .o-btn:after {

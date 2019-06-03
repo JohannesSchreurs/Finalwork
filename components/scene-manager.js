@@ -15,6 +15,7 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
     playNextScene: false,
     finished: false,
     soundtrack: null,
+    soundLoaded: false,
 
     schema: {
         amount: {
@@ -33,6 +34,9 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
         this.el.addEventListener('model-loaded', () => {
             this.loading = true;
         })
+        this.soundtrack.addEventListener('sound-loaded', () => {
+            this.soundLoaded = true;
+        })
         this.index = 0;
         this.children = [...this.el.children];
     },
@@ -41,20 +45,22 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
 
         //preview start
         if(this.loading) {
-            this.overlayText.innerHTML = 'Loading assets: ' + this.amountOfModelsLoaded++ + '/' + this.data.amount;
+            this.overlayText.innerHTML = 'Loading models: ' + this.amountOfModelsLoaded++ + '/' + this.data.amount;
         }
 
         if(!this.loaded) {
             if (this.amountOfModelsLoaded === this.data.amount) {
-                this.overlay.classList.add('hidden');
                 this.loading = false;
                 this.loaded = true;
+                this.overlayText.innerHTML = `Models loaded. Loading sounds.`;
             }
         }
 
         //main loop
-        if (this.loaded && !this.finished) {
+        if (this.loaded && !this.finished && this.soundLoaded) {
             
+            this.overlay.classList.add('hidden');
+
             this.fade.components.material.material.opacity -= 0.027;
             if (time - this.time < this.data.time[this.index]) { 
                 this.playNextScene = false;
@@ -82,9 +88,9 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
         if (this.finished) {
             this.overlay.classList.remove('hidden');
             this.overlayText.innerHTML = `Done.`;
+            this.soundtrack.components.sound.stopSound();
         }
     },
-
 
     //Sometimes we will need do some custom stuff to the scene in the scene, so this function does just that
     changeBasedOnScene: function (index, callback) {
