@@ -14,6 +14,7 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
     children: null,
     playNextScene: false,
     finished: false,
+    soundtrack: null,
 
     schema: {
         amount: {
@@ -28,6 +29,7 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
         this.overlay = document.querySelector('.js-overlay');
         this.overlayText = document.querySelector('.js-loading-text');
         this.fade = document.getElementById('overlay');
+        this.soundtrack = document.getElementById('soundtrack');
         this.el.addEventListener('model-loaded', () => {
             this.loading = true;
         })
