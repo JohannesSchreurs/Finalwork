@@ -14,24 +14,24 @@
     <!-- fog="type: linear; color: #AAA; near: 1; far: 55" -->
     <a-scene id="mainScene" stats fog="type: linear; color: #666; near: 10; far: 500">
         <a-assets>
-            <a-asset-item id="hut-obj" src="/models/WoodenCabinObj.obj"></a-asset-item>
-            <a-asset-item id="hut-obj2" src="/models/format3.obj"></a-asset-item>
             <a-asset-item id="factory" src="/models/factory-v2.obj"></a-asset-item>
             <a-asset-item id="cog" src="/models/cog.obj"></a-asset-item>
             <a-asset-item id="room" src="/models/room-v2.obj"></a-asset-item>
             <a-asset-item id="city" src="/models/city.obj"></a-asset-item>
             <a-asset-item id="skyline" src="/models/skyline.obj"></a-asset-item>
             <a-asset-item id="billboards" src="/models/billboards.obj"></a-asset-item>
+            <a-asset-item id="desert" src="/models/desert-v4.obj"></a-asset-item>
+            <a-asset-item id="forest" src="/models/forest.obj"></a-asset-item>
         </a-assets>
 
-        <a-entity id="scene-wrapper" scene-manager="amount: 12; time: 0, 20000, 20000, 20000, 20000, 20000">
+        <a-entity id="scene-wrapper" scene-manager="amount: 40; time: 0, 20000, 20000, 20000, 20000, 20000">
+            <a-entity visible="false" template="src: scenes/forest.html"></a-entity>
+            <a-entity visible="false" template="src: scenes/desert.html"></a-entity>
             <a-entity visible="false" template="src: scenes/billboards.html"></a-entity>
             <a-entity visible="false" template="src: scenes/skyline.html"></a-entity>
             <a-entity visible="false" template="src: scenes/city.html"></a-entity>
             <a-entity visible="false" template="src: scenes/room.html"></a-entity>
             <a-entity visible="false" template="src: scenes/factory.html"></a-entity>
-            <a-entity visible="false" template="src: scenes/boxes.html"></a-entity>
-            <a-entity visible="false" template="src: scenes/spheres.html"></a-entity>
             <!-- End -->
             <a-entity visible="false" template="src: scenes/finished.html"></a-entity>
         </a-entity>
