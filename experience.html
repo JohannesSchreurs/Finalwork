@@ -22,9 +22,12 @@
             <a-asset-item id="billboards" src="/models/billboards.obj"></a-asset-item>
             <a-asset-item id="desert" src="/models/desert-v4.obj"></a-asset-item>
             <a-asset-item id="forest" src="/models/forest.obj"></a-asset-item>
+            <a-asset-item id="car" src="/models/car.obj"></a-asset-item>
+
         </a-assets>
 
         <a-entity id="scene-wrapper" scene-manager="amount: 40; time: 0, 20000, 20000, 20000, 20000, 20000">
+            <a-entity visible="false" template="src: scenes/car.html"></a-entity>
             <a-entity visible="false" template="src: scenes/forest.html"></a-entity>
             <a-entity visible="false" template="src: scenes/desert.html"></a-entity>
             <a-entity visible="false" template="src: scenes/billboards.html"></a-entity>
