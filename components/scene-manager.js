@@ -16,6 +16,8 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
     finished: false,
     soundtrack: null,
     soundLoaded: false,
+    scene: null,
+    volume: 2,
 
     schema: {
         amount: {
@@ -31,6 +33,7 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
         this.overlayText = document.querySelector('.js-loading-text');
         this.fade = document.getElementById('overlay');
         this.soundtrack = document.getElementById('soundtrack');
+        this.scene = document.getElementById('mainScene');
         this.el.addEventListener('model-loaded', () => {
             this.loading = true;
         })
@@ -77,6 +80,14 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
                     }
                 })
 
+                this.changeBasedOnScene(1, () => {
+                    this.scene.setAttribute('fog', 'color:#ffd596; near:1; far:150;');
+                })
+
+                this.changeBasedOnScene(2, () => {
+                    this.scene.setAttribute('fog', 'color:#666; near: 5; far:500;');
+                })
+
                 this.children[this.index].setAttribute('visible', 'true');
                 this.index++;
                 this.fade.components.material.material.opacity = 1;
@@ -88,7 +99,11 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
         if (this.finished) {
             this.overlay.classList.remove('hidden');
             this.overlayText.innerHTML = `Done.`;
-            this.soundtrack.components.sound.stopSound();
+            this.volume -= 0.08;
+            this.soundtrack.setAttribute('volume', `${this.volume}`);
+            if (this.volume <= 0) {
+                this.soundtrack.components.sound.stopSound();
+            }
         }
     },
 
