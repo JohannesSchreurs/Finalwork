@@ -80,24 +80,34 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
                     }
                 })
 
-                //Forest
-                this.changeBasedOnScene(0, () => {
-                    this.scene.setAttribute('fog', 'color:#ffddfc; near:1; far:150;');
+                //Sewer
+                this.changeBasedOnScene(1, () => {
+                    this.scene.setAttribute('fog', 'color:#666; near:1; far:140;');
                 })
 
                 //Desert
-                this.changeBasedOnScene(1, () => {
+                //Room
+                this.changeBasedOnScene(2, () => {
                     this.scene.setAttribute('fog', 'color:#b6ede9; near:1; far:200;');
                 })
 
                 //Billboards
-                this.changeBasedOnScene(2, () => {
-                    this.scene.setAttribute('fog', 'color:#ffd596; near:1; far:150;');
+                this.changeBasedOnScene(3, () => {
+                    this.scene.setAttribute('fog', 'color:#ffd596; near:1; far:180;');
                 })
 
                 //Reset
-                this.changeBasedOnScene(3, () => {
+                this.changeBasedOnScene(4, () => {
                     this.scene.setAttribute('fog', 'color:#666; near: 5; far:500;');
+                })
+
+                this.changeBasedOnScene(6, () => {
+                    this.scene.setAttribute('fog', 'color:#ffd596; near:1; far:150;')
+                })
+
+                //Forest
+                this.changeBasedOnScene(8, () => {
+                    this.scene.setAttribute('fog', 'color:#ffddfc; near:1; far:150;');
                 })
 
                 this.children[this.index].setAttribute('visible', 'true');
