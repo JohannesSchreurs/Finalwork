@@ -1,7 +1,13 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: VCR;
 }
+
+@font-face {
+    font-family: VCR;
+    src: url('../fonts/VCR_OSD_MONO_1.001.ttf');
+  }
 
 .o-overlay {
     width: 100vw;
@@ -30,8 +36,13 @@ body{
     flex-direction: column;
 }
 
-.o-startscreen p {
+.o-startscreen__text {
+    text-align: center;
+}
+
+.o-startscreen__text p {
     margin: 0;
+    margin-top: 0.7rem;
 }
 
 .o-btn {
@@ -71,4 +82,21 @@ body{
 
 .hidden {
     display:none;
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+
+    .o-startscreen__text {
+        padding: 0 1rem;
+
+    }
+
+    .o-overlay__text {
+        font-size: 1.5rem;
+    }
+
+    .o-btn {
+        font-size: 1rem;
+        padding: 1.3rem 2rem;
+    }
 }

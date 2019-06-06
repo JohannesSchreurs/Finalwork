@@ -25,9 +25,13 @@
             <a-asset-item id="car" src="./models/car.obj"></a-asset-item>
             <a-asset-item id="sewer" src="./models/sewer-v5.obj"></a-asset-item>
             <a-asset-item id="poles" src="./models/environment-car.obj"></a-asset-item>
+            <a-asset-item id="cloud1" src="./models/cloud-1.obj"></a-asset-item>
+            <a-asset-item id="cloud2" src="./models/cloud-2.obj"></a-asset-item>
+            <a-asset-item id="cloud3" src="./models/cloud-3.obj"></a-asset-item>
+            <a-asset-item id="mother" src="./models/mother.obj"></a-asset-item>
         </a-assets>
 
-        <a-entity id="scene-wrapper" scene-manager="amount: 62; time: 0, 10000, 15000, 12000, 13000, 13000, 33000, 15000, 10000, 10000">
+        <a-entity id="scene-wrapper" scene-manager="amount: 70; time: 0, 10000, 15000, 12000, 13000, 13000, 33000, 15000, 10000, 10000">
             <a-entity visible="false" template="src: scenes/car.html"></a-entity>
             <a-entity visible="false" template="src: scenes/sewer.html"></a-entity>
             <a-entity visible="false" template="src: scenes/room.html"></a-entity>
@@ -50,6 +54,18 @@
           color="#000" 
           side="back"
         </a-sphere>
+
+        <a-camera>
+            <a-entity 
+              raycaster="objects: .clickable"
+              cursor="fuse: true; fuseTimeout: 150"
+              position="0 0 -1"
+              geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.008"
+              material="color: white; shader: flat"
+            >
+              <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1" to="1.5 1.5 1.5" dur="150"></a-animation>
+            </a-entity>
+          </a-camera>
 
         <a-sound id="soundtrack" src="./sounds/track-fw.mp3" autoplay="true" volume="2"></a-sound>
     </a-scene>
