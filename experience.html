@@ -4,6 +4,7 @@
     <title>Final Work</title>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
     <script src="./js/main.js" type="module"></script>
     <link rel="stylesheet" href="css/style.css">
   </head>
@@ -29,9 +30,11 @@
             <a-asset-item id="cloud2" src="./models/cloud-2.obj"></a-asset-item>
             <a-asset-item id="cloud3" src="./models/cloud-3.obj"></a-asset-item>
             <a-asset-item id="mother" src="./models/mother.obj"></a-asset-item>
+            <a-asset-item id="font" src="./fonts/VCR OSD Mono_Regular.json"></a-asset-item>
         </a-assets>
 
-        <a-entity id="scene-wrapper" scene-manager="amount: 70; time: 0, 10000, 15000, 12000, 13000, 13000, 33000, 15000, 10000, 10000">
+        <a-entity id="scene-wrapper" scene-manager="amount: 85; time: 0, 10000, 15000, 12000, 13000, 13000, 33000, 15000, 10000, 10000">
+            <a-entity visible="false" template="src: scenes/intermezzo1.html"></a-entity>
             <a-entity visible="false" template="src: scenes/car.html"></a-entity>
             <a-entity visible="false" template="src: scenes/sewer.html"></a-entity>
             <a-entity visible="false" template="src: scenes/room.html"></a-entity>
