@@ -16,6 +16,7 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
     finished: false,
     soundtrack: null,
     soundLoaded: false,
+    soundIsPlaying: false,
     scene: null,
     volume: 2,
 
@@ -48,7 +49,7 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
 
         //preview start
         if(this.loading) {
-            this.overlayText.innerHTML = 'Loading models: ' + this.amountOfModelsLoaded++ + '/' + this.data.amount;
+            this.overlayText.innerHTML = 'Entities loaded: ' + this.amountOfModelsLoaded++ + '/' + this.data.amount;
         }
 
         if(!this.loaded) {
@@ -63,6 +64,11 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
         if (this.loaded && !this.finished && this.soundLoaded) {
             
             this.overlay.classList.add('hidden');
+
+            if(!this.soundIsPlaying){
+                this.soundtrack.components.sound.playSound();
+                this.soundIsPlaying = true;
+            }
 
             this.fade.components.material.material.opacity -= 0.027;
             if (time - this.time < this.data.time[this.index]) { 
@@ -79,6 +85,9 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
                         child.setAttribute('visible', 'false');
                     }
                 })
+
+                //Intermezzo
+                //fog: near1 far8 color#fff
 
                 //Sewer
                 this.changeBasedOnScene(1, () => {
@@ -101,8 +110,16 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
                     this.scene.setAttribute('fog', 'color:#666; near: 5; far:500;');
                 })
 
+                this.changeBasedOnScene(5, () => {
+                    this.scene.setAttribute('fog', 'color:#fff; near: 5; far:500;');
+                })
+
                 this.changeBasedOnScene(6, () => {
                     this.scene.setAttribute('fog', 'color:#ffd596; near:1; far:150;')
+                })
+
+                this.changeBasedOnScene(7, () => {
+                    this.scene.setAttribute('fog', 'color:#fff; near:1; far:8;')
                 })
 
                 //Forest

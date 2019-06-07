@@ -10,10 +10,10 @@
   </head>
   <body>
     <div class="o-overlay js-overlay">
-      <p class="o-overlay__text js-loading-text">Loading models</p>
+      <p class="o-overlay__text js-loading-text">Entities loaded: 0/100</p>
     </div>
     <!-- fog="type: linear; color: #AAA; near: 1; far: 55" -->
-    <a-scene id="mainScene" stats fog="type: linear; color: #666; near: 10; far: 500">
+    <a-scene id="mainScene" stats fog="type: linear; color: #FFF; near: 10; far: 400">
         <a-assets>
             <a-asset-item id="factory" src="./models/factory-v2.obj"></a-asset-item>
             <a-asset-item id="cog" src="./models/cog.obj"></a-asset-item>
@@ -33,17 +33,18 @@
             <a-asset-item id="font" src="./fonts/VCR OSD Mono_Regular.json"></a-asset-item>
         </a-assets>
 
-        <a-entity id="scene-wrapper" scene-manager="amount: 85; time: 0, 10000, 15000, 12000, 13000, 13000, 33000, 15000, 10000, 10000">
-            <a-entity visible="false" template="src: scenes/intermezzo1.html"></a-entity>
+        <a-entity id="scene-wrapper" scene-manager="amount: 100; time: 0, 10000, 15000, 12000, 13000, 13000, 33000, 15000, 20000, 10000, 10000">
+            <a-entity visible="false" template="src: scenes/desert.html"></a-entity>
+            <a-entity visible="false" template="src: scenes/billboards.html"></a-entity>
             <a-entity visible="false" template="src: scenes/car.html"></a-entity>
             <a-entity visible="false" template="src: scenes/sewer.html"></a-entity>
             <a-entity visible="false" template="src: scenes/room.html"></a-entity>
             <a-entity visible="false" template="src: scenes/factory.html"></a-entity>
-            <a-entity visible="false" template="src: scenes/billboards.html"></a-entity>
             <a-entity visible="false" template="src: scenes/city.html"></a-entity>
             <a-entity visible="false" template="src: scenes/skyline.html"></a-entity>
+            <a-entity visible="false" template="src: scenes/intermezzo1.html"></a-entity>
             <a-entity visible="false" template="src: scenes/forest.html"></a-entity>
-            <a-entity visible="false" template="src: scenes/desert.html"></a-entity>
+            
             <!-- End -->
             <a-entity visible="false" template="src: scenes/finished.html"></a-entity>
         </a-entity>
@@ -60,17 +61,15 @@
 
         <a-camera>
             <a-entity 
-              raycaster="objects: .clickable"
+              raycaster="objects: .collidable"
               cursor="fuse: true; fuseTimeout: 150"
               position="0 0 -1"
               geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.008"
               material="color: white; shader: flat"
-            >
-              <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1" to="1.5 1.5 1.5" dur="150"></a-animation>
-            </a-entity>
-          </a-camera>
+            ></a-entity>
+        </a-camera>
 
-        <a-sound id="soundtrack" src="./sounds/track-fw.mp3" autoplay="true" volume="2"></a-sound>
+        <a-sound id="soundtrack" src="./sounds/track-fw.mp3" autoplay="false" volume="2"></a-sound>
     </a-scene>
   </body>
 </html>
