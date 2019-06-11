@@ -107,11 +107,11 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
 
                 //Reset
                 this.changeBasedOnScene(4, () => {
-                    this.scene.setAttribute('fog', 'color:#666; near: 5; far:500;');
+                    this.scene.setAttribute('fog', 'color:#FFF; near: 5; far:400;');
                 })
 
                 this.changeBasedOnScene(5, () => {
-                    this.scene.setAttribute('fog', 'color:#fff; near: 5; far:500;');
+                    this.scene.setAttribute('fog', 'color:#fff; near: 5; far:460;');
                 })
 
                 this.changeBasedOnScene(6, () => {
@@ -119,11 +119,15 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
                 })
 
                 this.changeBasedOnScene(7, () => {
+                    this.scene.setAttribute('fog', 'color:#fff; near:1; far:20;')
+                })
+
+                this.changeBasedOnScene(8, () => {
                     this.scene.setAttribute('fog', 'color:#fff; near:1; far:8;')
                 })
 
                 //Forest
-                this.changeBasedOnScene(8, () => {
+                this.changeBasedOnScene(9, () => {
                     this.scene.setAttribute('fog', 'color:#ffddfc; near:1; far:150;');
                 })
 
