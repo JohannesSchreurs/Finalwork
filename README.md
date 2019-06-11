@@ -2,7 +2,7 @@
 Repo for my final work
 
 # Notes
-This can be viewed [here](johannesschreurs.github.io/Finalwork)
+This can be viewed [here](https://johannesschreurs.github.io/Finalwork/)
 
 If you are on an iOS device, you might have to turn on the device orientation setting on in the settings menu.
 
