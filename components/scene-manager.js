@@ -128,7 +128,7 @@ const sceneManager = new AFRAME.registerComponent('scene-manager', {
 
                 //Forest
                 this.changeBasedOnScene(9, () => {
-                    this.scene.setAttribute('fog', 'color:#ffddfc; near:1; far:150;');
+                    this.scene.setAttribute('fog', 'color:#ffddfc; near:1; far:170;');
                 })
 
                 this.children[this.index].setAttribute('visible', 'true');
