@@ -2,5 +2,6 @@
 Repo for my final work
 
 # Notes
-Cloning/forking/downloading... this repo won't do much, as the models and sounds won't be loaded in. If you'd like to have acces to these, send me an email on:
-johannes.schreurs@student.ehb.be
+This can be viewed on: johannesschreurs.github.io/Finalwork
+If you are on an iOS device, you might have to turn on the device orientation setting on in the settings menu.
+If sound isn't playing right away, a refresh and a tap on the loading screen might solve it!
